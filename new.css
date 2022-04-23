@@ -1,0 +1,9 @@
+#jumbo{
+   background: rgba(230, 230, 230,0.5);
+   padding:90px; 
+   width:800px;
+}
+body{
+	background:url('rmk23.jpg') no-repeat center;
+    background-size:cover;
+}

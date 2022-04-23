@@ -1,0 +1,47 @@
+<?php
+session_start();
+if(!isset($_SESSION['uname']))
+{
+echo "<script>window.location.href='index.php';</script>";
+}
+$con=mysqli_connect("localhost","root","","stock");
+$res=$con->query("select * from current");
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Stock Available</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <center><h2>Stock Available</h2></center>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Category</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+	<?php
+	while($row=$res->fetch_assoc())
+    {
+	   echo "<tr>";
+       echo"<td>".$row['item'] ."</td>";
+       echo"<td>".$row['category'] ."</td>";
+       echo"<td>".$row['quantity'] ."</td>";
+       echo"</tr>";
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
+

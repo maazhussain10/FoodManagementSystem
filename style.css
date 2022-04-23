@@ -1,0 +1,21 @@
+{
+margin:0;
+padding:0;
+}
+body
+{
+width:100%;
+height:100%;
+font-size:100px;
+font-weight:bold;
+
+}
+body{
+width:100%;
+height:100%;
+background-image: url("rmk23.jpg");
+background-repeat:no-repeat;
+background-size:cover;
+position:relative;
+
+}

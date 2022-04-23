@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Purchase</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+ <script> 
+  function sum(){
+    var x=document.forms["f1"]["quantity1"].value;
+	var y=document.forms["f1"]["amountkg1"].value;
+	var z=x*y;
+	alert(z);
+	document.forms["f1"]["total1"].value=z;
+  }
+ </script> 
+</head>
+<body>
+<div class="container-fluid">
+  <center><h2>Enter the Item</h2></center><br/>
+  <form  action="#" name="f1" method="post">
+<center>    <div class="form-inline">
+     <input type="text" class="form-control"  placeholder="Enter the item name" name="item1">
+     <input type="text" class="form-control"  placeholder="Enter the category of item" name="category1">
+      <input type="text" class="form-control"  placeholder="Enter the qualtity of item " onchange="sum()" name="quantity1">
+     <input type="text" class="form-control" placeholder="Enter the Amount per kg" onchange="sum()" name="amountkg1">
+     <input type="text" class="form-control"  placeholder="Total Amount" name="total1" value="">
+   </div></center>
+<br/><br/>
+
+<!---
+<center>    <div class="form-inline">
+     <input type="text" class="form-control"  placeholder="Enter the item name" name="item1">
+     <input type="text" class="form-control"  placeholder="Enter the category of item" name="category1">
+      <input type="text" class="form-control"  placeholder="Enter the qualtity of item " name="quantity1">
+     <input type="text" class="form-control" placeholder="Enter the Amount per kg" name="amountkg1">
+     <input type="text" class="form-control"  placeholder="Total Amount" name="total1">
+   </div></center>
+<br/><br/>
+
+
+<center>    <div class="form-inline">
+     <input type="text" class="form-control"  placeholder="Enter the item name" name="item1">
+     <input type="text" class="form-control"  placeholder="Enter the category of item" name="category1">
+      <input type="text" class="form-control"  placeholder="Enter the qualtity of item " name="quantity1">
+     <input type="text" class="form-control" placeholder="Enter the Amount per kg" name="amountkg1">
+     <input type="text" class="form-control"  placeholder="Total Amount" name="total1">
+   </div></center>
+<br/><br/>
+
+
+
+<center>    <div class="form-inline">
+     <input type="text" class="form-control"  placeholder="Enter the item name" name="item1">
+     <input type="text" class="form-control"  placeholder="Enter the category of item" name="category1">
+      <input type="text" class="form-control"  placeholder="Enter the qualtity of item " name="quantity1">
+     <input type="text" class="form-control" placeholder="Enter the Amount per kg" name="amountkg1">
+     <input type="text" class="form-control"  placeholder="Total Amount" name="total1">
+   </div></center>
+<br/><br/>
+
+
+<center>    <div class="form-inline">
+     <input type="text" class="form-control"  placeholder="Enter the item name" name="item1">
+     <input type="text" class="form-control"  placeholder="Enter the category of item" name="category1">
+      <input type="text" class="form-control"  placeholder="Enter the qualtity of item " name="quantity1">
+     <input type="text" class="form-control" placeholder="Enter the Amount per kg" name="amountkg1">
+     <input type="text" class="form-control"  placeholder="Total Amount" name="total1">
+   </div></center>
+<br/><br/>
+
+
+<center>    <div class="form-inline">
+     <input type="text" class="form-control"  placeholder="Enter the item name" name="item1">
+     <input type="text" class="form-control"  placeholder="Enter the category of item" name="category1">
+      <input type="text" class="form-control"  placeholder="Enter the qualtity of item " name="quantity1">
+     <input type="text" class="form-control" placeholder="Enter the Amount per kg" name="amountkg1">
+     <input type="text" class="form-control"  placeholder="Total Amount" name="total1">
+   </div></center>
+<br/><br/>
+
+
+<center>    <div class="form-inline">
+     <input type="text" class="form-control"  placeholder="Enter the item name" name="item1">
+     <input type="text" class="form-control"  placeholder="Enter the category of item" name="category1">
+      <input type="text" class="form-control"  placeholder="Enter the qualtity of item " name="quantity1">
+     <input type="text" class="form-control" placeholder="Enter the Amount per kg" name="amountkg1">
+     <input type="text" class="form-control"  placeholder="Total Amount" name="total1">
+   </div></center>
+<br/><br/>
+
+
+<center>    <div class="form-inline">
+     <input type="text" class="form-control"  placeholder="Enter the item name" name="item1">
+     <input type="text" class="form-control"  placeholder="Enter the category of item" name="category1">
+      <input type="text" class="form-control"  placeholder="Enter the qualtity of item " name="quantity1">
+     <input type="text" class="form-control" placeholder="Enter the Amount per kg" name="amountkg1">
+     <input type="text" class="form-control"  placeholder="Total Amount" name="total1">
+   </div></center>
+<br/><br/>
+
+
+<center>    <div class="form-inline">
+     <input type="text" class="form-control"  placeholder="Enter the item name" name="item1">
+     <input type="text" class="form-control"  placeholder="Enter the category of item" name="category1">
+      <input type="text" class="form-control"  placeholder="Enter the qualtity of item " name="quantity1">
+     <input type="text" class="form-control" placeholder="Enter the Amount per kg" name="amountkg1">
+     <input type="text" class="form-control"  placeholder="Total Amount" name="total1">
+   </div></center>
+<br/><br/>
+
+
+<center>    <div class="form-inline">
+     <input type="text" class="form-control"  placeholder="Enter the item name" name="item1">
+     <input type="text" class="form-control"  placeholder="Enter the category of item" name="category1">
+      <input type="text" class="form-control"  placeholder="Enter the qualtity of item " name="quantity1">
+     <input type="text" class="form-control" placeholder="Enter the Amount per kg" name="amountkg1">
+     <input type="text" class="form-control"  placeholder="Total Amount" name="total1">
+   </div></center>
+<br/><br/>--->
+   
+    <center><button type="submit" class="btn btn-success">Submit</button></center>
+  </form>
+<center><a href="">Home</a></center>
+</div>
+</body>
+</html>
