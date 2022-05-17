@@ -4,111 +4,128 @@ include 'nav.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>attendance report</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
   <script src="jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <!-- <script src="js/bootstrap.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <style>
-  body{
-background-color:#CBFFC2;
-}
-  th,td
-  {
-    border:2px solid black;
-    border-collapse: collapse;
-    width:1%;
-    padding: 5px;
-  }
-</style>
+    /* body {
+      background-color: #CBFFC2;
+    }
+
+    th,
+    td {
+      border: 2px solid black;
+      border-collapse: collapse;
+      width: 1%;
+      padding: 5px;
+    } */
+  </style>
 </head>
+
 <body>
-<h1><center>Monthly Attendance Report</center></h1>
-<?php
-$x=$_POST['date1'];
-$y=$_POST['date2'];
+  <h3 class="my-4">
+    <center>Monthly Attendance Report</center>
+  </h3>
+  <?php
+  $x = $_POST['date1'];
+  $y = $_POST['date2'];
 
-include('dbConnect.php');
-$smt=$con->prepare("select * from attendence where date>=? and date<=?");
-$smt->bind_param('ss',$x,$y);
-$smt->execute();
-$res=$smt->get_result();
-//print_r($res);
-?>
+  include('dbConnect.php');
+  $smt = $con->prepare("select * from attendence where date>=? and date<=?");
+  $smt->bind_param('ss', $x, $y);
+  $smt->execute();
+  $res = $smt->get_result();
+  //print_r($res);
+  ?>
 
 
-<hr/>
-<br>
-<center>From:    <input type="text" name="Month" value="<?php echo $_POST['date1'];?>" disabled/> TO: <input type="text" name="Month" value="<?php echo $_POST['date2'];?>" disabled/> </center><br/>
-<table align="center">
-  <tr>
-  <th rowspan="2">DATE</th>
-  <th colspan="3">RMK</th>
-  <th colspan="3">RMD</th>
-  <th colspan="3">RMKCET</th>
-  <th colspan="3">MSCHOOL</th>
-  <th colspan="3">RSCHOOL</th>
-  <th colspan="3">CBSE</th>
-  <th colspan="3">POLYTECH</th>
-  <th rowspan="2">TOTAL</th>
-</tr>
-<tr>
-  <th>stud</th>
-  <th>staff</th>
-  <th>workrs</th>
-   <th>stud</th>
-  <th>staff</th>
-  <th>workrs</th>
-   <th>stud</th>
-  <th>staff</th>
-  <th>workrs</th>
-   <th>stud</th>
-  <th>staff</th>
-  <th>workrs</th>
-   <th>stud</th>
-  <th>staff</th>
-  <th>workrs</th>
-   <th>stud</th>
-  <th>staff</th>
-  <th>workrs</th>
-   <th>stud</th>
-  <th>staff</th>
-  <th>workrs</th>
-</tr>
 
-<?php
-while($row=$res->fetch_assoc()){
-	echo '<tr>
-  <td>'.$row['date'].'</td>
-  <td>'.$row['rmk_students'].'</td>
-  <td>'.$row['rmk_staff'].'</td>
-  <td>'.$row['rmk_workers'].'</td>
-  <td>'.$row['rmd_students'].'</td>
-  <td>'.$row['rmd_staff'].'</td>
-  <td>'.$row['rmd_workers'].'</td>
-  <td>'.$row['cet_students'].'</td>
-  <td>'.$row['cet_staff'].'</td>
-  <td>'.$row['cet_workers'].'</td>
-  <td>'.$row['school_students'].'</td>
-  <td>'.$row['school_staff'].'</td>
-  <td>'.$row['school_workers'].'</td>
-  <td>'.$row['r_students'].'</td>
-  <td>'.$row['r_staff'].'</td>
-  <td>'.$row['r_workers'].'</td>
-  <td>'.$row['cbse_students'].'</td>
-  <td>'.$row['cbse_staff'].'</td>
-  <td>'.$row['cbse_workers'].'</td>
-  <td>'.$row['poly_students'].'</td>
-  <td>'.$row['poly_staff'].'</td>
-  <td>'.$row['poly_workers'].'</td>
-  <td>'.$row['total_count'].'</td>
+  <br>
+  <div class="row mb-3">
+    <div class="col-sm-4 offset-sm-4">
+      <center>From: <input class="form-control" type="text" name="Month" value="<?php echo $_POST['date1']; ?>" disabled /> TO: <input class="form-control" type="text" name="Month" value="<?php echo $_POST['date2']; ?>" disabled /> </center><br />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="table-responsive">
+        <table class="table table-light table-striped table-bordered" align="center">
+          <thead class="table-dark">
+            <tr>
+              <th rowspan="2">DATE</th>
+              <th colspan="3">RMK</th>
+              <th colspan="3">RMD</th>
+              <th colspan="3">RMKCET</th>
+              <th colspan="3">MSCHOOL</th>
+              <th colspan="3">RSCHOOL</th>
+              <th colspan="3">CBSE</th>
+              <th colspan="3">POLYTECH</th>
+              <th rowspan="2">TOTAL</th>
+            </tr>
+            <tr>
+              <th>stud</th>
+              <th>staff</th>
+              <th>workrs</th>
+              <th>stud</th>
+              <th>staff</th>
+              <th>workrs</th>
+              <th>stud</th>
+              <th>staff</th>
+              <th>workrs</th>
+              <th>stud</th>
+              <th>staff</th>
+              <th>workrs</th>
+              <th>stud</th>
+              <th>staff</th>
+              <th>workrs</th>
+              <th>stud</th>
+              <th>staff</th>
+              <th>workrs</th>
+              <th>stud</th>
+              <th>staff</th>
+              <th>workrs</th>
+            </tr>
+          </thead>
+
+
+          <?php
+          while ($row = $res->fetch_assoc()) {
+            echo '<tr>
+  <td>' . $row['date'] . '</td>
+  <td>' . $row['rmk_students'] . '</td>
+  <td>' . $row['rmk_staff'] . '</td>
+  <td>' . $row['rmk_workers'] . '</td>
+  <td>' . $row['rmd_students'] . '</td>
+  <td>' . $row['rmd_staff'] . '</td>
+  <td>' . $row['rmd_workers'] . '</td>
+  <td>' . $row['cet_students'] . '</td>
+  <td>' . $row['cet_staff'] . '</td>
+  <td>' . $row['cet_workers'] . '</td>
+  <td>' . $row['school_students'] . '</td>
+  <td>' . $row['school_staff'] . '</td>
+  <td>' . $row['school_workers'] . '</td>
+  <td>' . $row['r_students'] . '</td>
+  <td>' . $row['r_staff'] . '</td>
+  <td>' . $row['r_workers'] . '</td>
+  <td>' . $row['cbse_students'] . '</td>
+  <td>' . $row['cbse_staff'] . '</td>
+  <td>' . $row['cbse_workers'] . '</td>
+  <td>' . $row['poly_students'] . '</td>
+  <td>' . $row['poly_staff'] . '</td>
+  <td>' . $row['poly_workers'] . '</td>
+  <td>' . $row['total_count'] . '</td>
 </tr>';
-}
-?>
+          }
+          ?>
 
-<!--
+          <!--
 <tr>
   <td>1/5/2018</td>
   <td>1000</td>
@@ -912,15 +929,20 @@ while($row=$res->fetch_assoc()){
 
 <br>
 <br>-->
-</table>
-<center>
-<button onclick="myFunction()">Print this page</button>
-<script>
-function myFunction() {
-  window.print();
-}
-</script>
-</table>
-</center>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <center>
+    <button class="btn btn-primary  " onclick="myFunction()">Print this page</button>
+    <script>
+      function myFunction() {
+        window.print();
+      }
+    </script>
+    
+  </center>
 </body>
+
 </html>

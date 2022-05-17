@@ -3,39 +3,51 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html>
-<head><title>Reports</title>
-<meta charset="utf-8">
+
+<head>
+  <title>Reports</title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
   <script src="jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <!-- <script src="js/bootstrap.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <style>
-body{
-background-color:#CBFFC2;
-}
-</style>
+    
+  </style>
 
 </head>
-<body >
-<?php
-include 'nav.php';
-?>
 
-<div class="container">
+<body>
+  <?php
+  include 'nav.php';
+  ?>
+
+  <div class="container">
 
 
 
-<center><h1>Reports</h1></center><hr>
+    <center class="my-4">
+      <h3>Attendance Reports</h3>
+    </center>
 
-<form action="report.php" method="post">
-<label for="from">From</label><br>
-<input type="date" class="form-control" name="date1" /><br>
-<label for="to">To</label><br>
-<input type="date" class="form-control" name="date2" /><br>
-<br/>
-<button type="submit" class="btn btn-warning" value="Get Report">Get Report</button>
-</form>
-<center><a href="homepage.php" style="color:white">Home</a></center>
-</div>
+    <div class="row">
+      <div class="col-sm-6 offset-sm-3">
+        <form action="report.php" method="post">
+          <label class="form-label" for="from">From</label>
+          <input type="date" class="form-control" name="date1" /><br>
+          <label class="form-label" for="to">To</label>
+          <input type="date" class="form-control" name="date2" /><br>
+          
+          <center><button type="submit" class="btn btn-warning" value="Get Report">Get Report</button></center>
+        </form>
+      </div>
+    </div>
+
+
+   
+  </div>
 </body>
+
 </html>
